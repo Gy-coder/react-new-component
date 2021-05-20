@@ -7,7 +7,7 @@ import Icon from './components/icon/icon';
 ReactDOM.render(
   <React.StrictMode>
     <div>
-      <Icon name="react" />
+      <Icon name="react" className="rr" onMouseEnter={() => console.log(1)} />
       <Icon name="wechat" />
     </div>
   </React.StrictMode>,
