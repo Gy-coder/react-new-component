@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
-import App from './App';
+import Icon from './components/icon/icon';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <div>
+      <Icon name="react" />
+      <Icon name="wechat" />
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );
