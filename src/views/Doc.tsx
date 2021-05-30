@@ -14,11 +14,9 @@ import Intro from '../markdown/introduce.md';
 import Install from '../markdown/install.md';
 import GetStarted from '../markdown/get-started.md';
 import IconPage from '../examples/Icon/IconPage';
+import FormPage from '../examples/form/FormPage';
 
 const Doc: React.FC = () => {
-  const { path, url } = useRouteMatch();
-  console.log(path, url);
-  console.log(Intro);
   return (
     <div className="layout">
       <TopNav />
@@ -41,6 +39,9 @@ const Doc: React.FC = () => {
             <li>
               <NavLink to="/doc/icon">Icon 组件</NavLink>
             </li>
+            <li>
+              <NavLink to="/doc/form">Form 组件</NavLink>
+            </li>{' '}
           </ol>
         </aside>
         <main>
@@ -55,6 +56,7 @@ const Doc: React.FC = () => {
               <ReactMarkdown className="markdown-body" children={GetStarted} />
             </Route>
             <Route path="/doc/icon" component={IconPage} />
+            <Route path="/doc/form" component={FormPage} />
             <Redirect to="/doc/introduce" />
           </Switch>
         </main>

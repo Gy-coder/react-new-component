@@ -3,5 +3,6 @@ const importAll = (requireContext) =>
 try {
   importAll(require.context('../icons/', true, /\.svg$/));
 } catch (e) {
+  /* eslint-disable no-console */
   console.log(e);
 }

@@ -34,6 +34,9 @@
         "import/no-cycle": "off",
         "react/no-array-index-key": "off",
         "react/no-children-prop": "off",
-        "@typescript-eslint/no-use-before-define": ["error", { "variables": false }]
+        "react/jsx-curly-brace-presence": "off",
+        "react/button-has-type": "off",
+        "@typescript-eslint/no-use-before-define": ["error", { "variables": false }],
+        "@typescript-eslint/no-shadow":"off"
     }
 }
