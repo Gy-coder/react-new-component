@@ -15,7 +15,7 @@ import Install from '../markdown/install.md';
 import GetStarted from '../markdown/get-started.md';
 import IconPage from '../examples/Icon/IconPage';
 import FormPage from '../examples/form/FormPage';
-import PaginationPage from '../examples/PaginationPage';
+import PaginationPage from '../examples/Pagination/PaginationPage';
 import LayoutPage from '../examples/Layout/LayoutPage';
 import TabsPage from '../examples/Tabs/TabsPage';
 

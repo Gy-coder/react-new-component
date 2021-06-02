@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Form, { FormValue } from '../../components/form/Form';
+import Form, { FormValue } from '../../components/Form/Form';
 
 const FormPage = () => {
   const [formData, setFormData] = useState<FormValue>({

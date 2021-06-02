@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Pagination from '../components/pagination/Pagination';
+import Pagination from '../../components/Pagination/Pagination';
 
 const PaginationPage: React.FC = () => {
   const [p, setP] = useState(1);

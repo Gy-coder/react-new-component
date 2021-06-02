@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Pagination.scss';
 import classnames from 'classnames';
 import usePages from './usePages';
-import Icon from '../icon/icon';
+import Icon from '../Icon/icon';
 
 interface PaginationProps {
   totalPage: number;

@@ -1,7 +1,7 @@
 import React from 'react';
 import Tabs from '../../components/Tabs/Tabs';
 import TabsItem from '../../components/Tabs/TabsItem';
-import Icon from '../../components/icon/icon';
+import Icon from '../../components/Icon/icon';
 
 const TabsPage = () => {
   return (
