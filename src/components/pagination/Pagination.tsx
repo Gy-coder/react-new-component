@@ -14,7 +14,6 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const { totalPage, onChange, defaultPage = 1 } = props;
   const [curPage, setCurPage] = useState(defaultPage);
   const { pages } = usePages(totalPage, curPage);
-  console.log(pages);
   const onClickPage = (page: number) => {
     if (page >= 1 && page <= totalPage) setCurPage(page);
   };
