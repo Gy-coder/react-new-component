@@ -1,0 +1,18 @@
+.g-layout{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  &-has-sider{
+    flex-direction: row;
+    > .g-layout{
+      flex-direction: column;
+    }
+  }
+  &-content{
+    flex-grow: 1;
+    border: 1px solid green;
+  }
+  & &{
+    flex-grow: 1;
+  }
+}

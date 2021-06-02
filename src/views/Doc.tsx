@@ -16,6 +16,8 @@ import GetStarted from '../markdown/get-started.md';
 import IconPage from '../examples/Icon/IconPage';
 import FormPage from '../examples/form/FormPage';
 import PaginationPage from '../examples/PaginationPage';
+import LayoutPage from '../examples/Layout/LayoutPage';
+import TabsPage from '../examples/Tabs/TabsPage';
 
 const Doc: React.FC = () => {
   return (
@@ -46,6 +48,12 @@ const Doc: React.FC = () => {
             <li>
               <NavLink to="/doc/pagination">Pagination 组件</NavLink>
             </li>
+            <li>
+              <NavLink to="/doc/layout">Layout 组件</NavLink>
+            </li>
+            <li>
+              <NavLink to="/doc/tabs">Tabs 组件</NavLink>
+            </li>
           </ol>
         </aside>
         <main>
@@ -62,6 +70,8 @@ const Doc: React.FC = () => {
             <Route path="/doc/icon" component={IconPage} />
             <Route path="/doc/form" component={FormPage} />
             <Route path="/doc/pagination" component={PaginationPage} />
+            <Route path="/doc/layout" component={LayoutPage} />
+            <Route path="/doc/tabs" component={TabsPage} />
             <Redirect to="/doc/introduce" />
           </Switch>
         </main>
