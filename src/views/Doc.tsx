@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Route,
-  Switch,
-  useRouteMatch,
-  NavLink,
-  Redirect,
-} from 'react-router-dom';
+import { Route, Switch, NavLink, Redirect } from 'react-router-dom';
 // @ts-ignore
 import ReactMarkdown from 'react-markdown';
 import TopNav from './TopNav';
@@ -18,6 +12,7 @@ import FormPage from '../examples/form/FormPage';
 import PaginationPage from '../examples/Pagination/PaginationPage';
 import LayoutPage from '../examples/Layout/LayoutPage';
 import TabsPage from '../examples/Tabs/TabsPage';
+import ButtonPage from '../examples/Button/ButtonPage';
 
 const Doc: React.FC = () => {
   return (
@@ -41,6 +36,9 @@ const Doc: React.FC = () => {
           <ol>
             <li>
               <NavLink to="/doc/icon">Icon 组件</NavLink>
+            </li>
+            <li>
+              <NavLink to="/doc/button">Button 组件</NavLink>
             </li>
             <li>
               <NavLink to="/doc/form">Form 组件</NavLink>
@@ -72,6 +70,7 @@ const Doc: React.FC = () => {
             <Route path="/doc/pagination" component={PaginationPage} />
             <Route path="/doc/layout" component={LayoutPage} />
             <Route path="/doc/tabs" component={TabsPage} />
+            <Route path="/doc/button" component={ButtonPage} />
             <Redirect to="/doc/introduce" />
           </Switch>
         </main>
