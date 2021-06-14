@@ -11,6 +11,7 @@ const FormPage = () => {
     { name: 'username', label: '用户名', input: { type: 'text' } },
     { name: 'password', label: '密码', input: { type: 'password' } },
   ]);
+  const [errors, setErrors] = useState({});
 
   const onSubmit = () => {
     const rules: FormRule[] = [
@@ -21,6 +22,7 @@ const FormPage = () => {
     ];
     const errors = Validator(formData, rules);
     console.log('errors:', errors);
+    setErrors(errors);
   };
   return (
     <div>
@@ -31,6 +33,7 @@ const FormPage = () => {
         onChange={(newValue) => {
           setFormData(newValue);
         }}
+        errors={errors}
         buttons={
           <>
             <button type={'submit'}>提交</button>

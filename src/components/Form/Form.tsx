@@ -10,10 +10,11 @@ interface Prop {
   buttons: React.ReactFragment;
   onSubmit: React.FormEventHandler<HTMLFormElement>;
   onChange: (value: FormValue) => void;
+  errors: { [K: string]: string[] };
 }
 
 const Form: React.FC<Prop> = (props) => {
-  const { value, fields, buttons, onSubmit, onChange } = props;
+  const { value, fields, buttons, onSubmit, onChange, errors } = props;
   const formData = value;
   const onsubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -34,6 +35,7 @@ const Form: React.FC<Prop> = (props) => {
               value={value[f.name]}
               onChange={(e) => onInputChange(f.name, e.target.value)}
             />
+            <div>{errors[f.name]}</div>
           </div>
         );
       })}
