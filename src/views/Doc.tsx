@@ -13,6 +13,7 @@ import PaginationPage from '../examples/Pagination/PaginationPage';
 import LayoutPage from '../examples/Layout/LayoutPage';
 import TabsPage from '../examples/Tabs/TabsPage';
 import ButtonPage from '../examples/Button/ButtonPage';
+import InputPage from '../examples/Input/InputPage';
 
 const Doc: React.FC = () => {
   return (
@@ -39,6 +40,9 @@ const Doc: React.FC = () => {
             </li>
             <li>
               <NavLink to="/doc/button">Button 组件</NavLink>
+            </li>
+            <li>
+              <NavLink to="/doc/input">Input 组件</NavLink>
             </li>
             <li>
               <NavLink to="/doc/form">Form 组件</NavLink>
@@ -71,6 +75,7 @@ const Doc: React.FC = () => {
             <Route path="/doc/layout" component={LayoutPage} />
             <Route path="/doc/tabs" component={TabsPage} />
             <Route path="/doc/button" component={ButtonPage} />
+            <Route path="/doc/input" component={InputPage} />
             <Redirect to="/doc/introduce" />
           </Switch>
         </main>
