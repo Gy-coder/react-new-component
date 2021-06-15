@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Form, { FormValue } from '../../components/Form/Form';
-import Validator, { FormRule } from '../../components/Form/Validator';
+import Validator, { FormRule, noError } from '../../components/Form/Validator';
+import Button from '../../components/Button/Button';
 
 const FormPage = () => {
   const [formData, setFormData] = useState<FormValue>({
@@ -23,6 +24,9 @@ const FormPage = () => {
     const errors = Validator(formData, rules);
     console.log('errors:', errors);
     setErrors(errors);
+    if (noError(errors)) {
+      // TODO
+    }
   };
   return (
     <div>
@@ -36,8 +40,10 @@ const FormPage = () => {
         errors={errors}
         buttons={
           <>
-            <button type={'submit'}>提交</button>
-            <button>返回</button>
+            <Button type={'submit'} level="main">
+              提交
+            </Button>
+            <Button>返回</Button>
           </>
         }
       />
