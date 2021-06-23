@@ -39,36 +39,38 @@ const Form: React.FC<Prop> = (props) => {
   return (
     <form onSubmit={onsubmit}>
       <table>
-        {fields.map((f) => (
-          <tr className={classnames('g-form-tr')} key={f.name}>
-            <td className="g-form-td">
-              <span className="g-form-label">{f.label}</span>
-            </td>
-            <td className="g-form-td">
-              <Input
-                className="g-form-input"
-                type={f.input.type}
-                value={formData[f.name]}
-                onChange={(e) => onInputChange(f.name, e.target.value)}
-              />
-              <div className="g-form-error">
-                {errors[f.name] ? (
-                  errorsDisplayMode === 'first' ? (
-                    errors[f.name][0]
+        <tbody>
+          {fields.map((f) => (
+            <tr className={classnames('g-form-tr')} key={f.name}>
+              <td className="g-form-td">
+                <span className="g-form-label">{f.label}</span>
+              </td>
+              <td className="g-form-td">
+                <Input
+                  className="g-form-input"
+                  type={f.input.type}
+                  value={formData[f.name]}
+                  onChange={(e) => onInputChange(f.name, e.target.value)}
+                />
+                <div className="g-form-error">
+                  {errors[f.name] ? (
+                    errorsDisplayMode === 'first' ? (
+                      errors[f.name][0]
+                    ) : (
+                      errors[f.name].join(' ')
+                    )
                   ) : (
-                    errors[f.name].join(' ')
-                  )
-                ) : (
-                  <span>&nbsp;</span>
-                )}
-              </div>
-            </td>
+                    <span>&nbsp;</span>
+                  )}
+                </div>
+              </td>
+            </tr>
+          ))}
+          <tr className="g-form-tr">
+            <td className="g-form-td" />
+            <td className="g-form-td">{buttons}</td>
           </tr>
-        ))}
-        <tr className="g-form-tr">
-          <td className="g-form-td" />
-          <td className="g-form-td">{buttons}</td>
-        </tr>
+        </tbody>
       </table>
     </form>
   );
