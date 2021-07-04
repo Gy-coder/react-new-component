@@ -22,7 +22,7 @@ const DialogPage = () => {
       >
         Dialog
       </Dialog>
-      <button onClick={() => alert('我是alert')}>button</button>
+      <button onClick={() => alert('我是alert', '这是标题')}>button</button>
       <button
         onClick={() =>
           confirm(
@@ -32,7 +32,8 @@ const DialogPage = () => {
             },
             () => {
               console.log('you click fail');
-            }
+            },
+            '这是confirm的标题'
           )
         }
       >

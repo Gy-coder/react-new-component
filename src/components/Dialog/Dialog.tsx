@@ -7,6 +7,7 @@ import Button from '../Button/Button';
 
 interface Props {
   visible: boolean;
+  title?: string;
   className?: string;
   buttons?: ReactElement[];
   onClose: React.MouseEventHandler;
@@ -16,6 +17,7 @@ interface Props {
 const Dialog: React.FC<Props> = (props) => {
   const {
     visible,
+    title = '提示',
     children,
     className,
     buttons,
@@ -36,7 +38,7 @@ const Dialog: React.FC<Props> = (props) => {
         <div className="g-dialog-close" onClick={onClickClose}>
           <Icon name="i-close" />
         </div>
-        <header className="g-dialog-header">提示</header>
+        <header className="g-dialog-header">{title}</header>
         <main className="g-dialog-content">{children}</main>
         {buttons && buttons.length > 0 && (
           <footer className="g-dialog-footer">{buttons}</footer>
@@ -52,7 +54,8 @@ export default Dialog;
 export const modal = (
   content: ReactNode,
   buttons?: ReactElement[],
-  afterClose?: () => void
+  afterClose?: () => void,
+  title?: string
 ) => {
   const onClose = () => {
     ReactDOM.render(React.cloneElement(component, { visible: false }), div);
@@ -62,6 +65,7 @@ export const modal = (
   const component = (
     <Dialog
       visible
+      title={title}
       onClose={() => {
         onClose();
         afterClose && afterClose();
@@ -77,18 +81,24 @@ export const modal = (
   return onClose;
 };
 
-export const alert = (content: ReactNode) => {
-  const close = modal('我是alert', [
-    <Button level="main" key={1} onClick={() => close()}>
-      OK
-    </Button>,
-  ]);
+export const alert = (content: ReactNode, title?: string) => {
+  const close = modal(
+    content,
+    [
+      <Button level="main" key={1} onClick={() => close()}>
+        OK
+      </Button>,
+    ],
+    () => {},
+    title
+  );
 };
 
 export const confirm = (
   content: ReactNode,
   success?: Function,
-  fail?: Function
+  fail?: Function,
+  title?: string
 ) => {
   const onSuccess = () => {
     close();
@@ -106,5 +116,5 @@ export const confirm = (
       取消
     </Button>,
   ];
-  const close = modal('我是confirm', buttons, onFail);
+  const close = modal('我是confirm', buttons, onFail, title);
 };
