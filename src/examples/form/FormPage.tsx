@@ -3,7 +3,7 @@ import Form, { FormValue } from '../../components/Form/Form';
 import Validator, { FormRule, noError } from '../../components/Form/Validator';
 import Button from '../../components/Button/Button';
 
-const usernames = ['frank', 'jack', 'alice', 'bob'];
+const usernames = ['frank', 'jack', 'alice', 'bob', 'frankfrank'];
 const checkUserName = (
   username: string,
   successed: Function,
@@ -56,6 +56,13 @@ const FormPage = () => {
       }
     });
   };
+  const transformError = (message: string) => {
+    console.log('message', message);
+    const map: any = {
+      unique: '用户名已存在',
+    };
+    return map[message];
+  };
   return (
     <div>
       {JSON.stringify(errors)}
@@ -67,6 +74,7 @@ const FormPage = () => {
           setFormData(newValue);
         }}
         errors={errors}
+        transformError={transformError}
         buttons={
           <>
             <Button type={'submit'} level="main">

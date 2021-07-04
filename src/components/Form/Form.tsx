@@ -15,6 +15,7 @@ interface Prop {
   onChange: (value: FormValue) => void;
   errors: { [K: string]: string[] };
   errorsDisplayMode?: 'first' | 'all';
+  transformError?: (message: string) => string;
 }
 
 const Form: React.FC<Prop> = (props) => {
@@ -26,6 +27,7 @@ const Form: React.FC<Prop> = (props) => {
     onChange,
     errors,
     errorsDisplayMode = 'first',
+    transformError,
   } = props;
   const formData = value;
   const onsubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
@@ -35,6 +37,20 @@ const Form: React.FC<Prop> = (props) => {
   const onInputChange = (name: string, value: string) => {
     const newFormValue = { ...formData, [name]: value };
     onChange(newFormValue);
+  };
+  const transform = (message: string) => {
+    console.log('innermessage', message);
+    const map: any = {
+      required: '必填',
+      minLength: '太短',
+      maxLength: '太长',
+    };
+    if (transformError) {
+      console.log(transformError(message));
+    }
+    return (
+      (transformError && transformError(message)) || map[message] || '未知错误'
+    );
   };
   return (
     <form onSubmit={onsubmit}>
@@ -55,9 +71,11 @@ const Form: React.FC<Prop> = (props) => {
                 <div className="g-form-error">
                   {errors[f.name] ? (
                     errorsDisplayMode === 'first' ? (
-                      errors[f.name][0]
+                      transform(errors[f.name][0])
                     ) : (
-                      errors[f.name].join(' ')
+                      errors[f.name].map((error) => {
+                        return transform(error).join();
+                      })
                     )
                   ) : (
                     <span>&nbsp;</span>
