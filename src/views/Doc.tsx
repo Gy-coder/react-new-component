@@ -14,6 +14,7 @@ import LayoutPage from '../examples/Layout/LayoutPage';
 import TabsPage from '../examples/Tabs/TabsPage';
 import ButtonPage from '../examples/Button/ButtonPage';
 import InputPage from '../examples/Input/InputPage';
+import DialogPage from '../examples/Dialog/DialogPage';
 
 const Doc: React.FC = () => {
   return (
@@ -56,6 +57,9 @@ const Doc: React.FC = () => {
             <li>
               <NavLink to="/doc/tabs">Tabs 组件</NavLink>
             </li>
+            <li>
+              <NavLink to="/doc/dialog">Dialog 组件</NavLink>
+            </li>
           </ol>
         </aside>
         <main>
@@ -76,6 +80,7 @@ const Doc: React.FC = () => {
             <Route path="/doc/tabs" component={TabsPage} />
             <Route path="/doc/button" component={ButtonPage} />
             <Route path="/doc/input" component={InputPage} />
+            <Route path="/doc/dialog" component={DialogPage} />
             <Redirect to="/doc/introduce" />
           </Switch>
         </main>
