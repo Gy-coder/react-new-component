@@ -6,14 +6,7 @@ const DialogPage = () => {
   const [x, setX] = useState(false);
   const buttons = [<Button level="main">OK</Button>, <Button>Close</Button>];
   const openModal = () => {
-    const close = modal(
-      <h1>
-        你好
-        <Button level="main" onClick={() => close()}>
-          close
-        </Button>
-      </h1>
-    );
+    modal(<h1>你好</h1>);
   };
   return (
     <div>
